@@ -127,3 +127,47 @@ UNION ALL
   ORDER BY total_employees DESC
   LIMIT 1
 );
+Create Table Persons(
+	ID int not null,
+    LastName varchar(255) NOT NULL,
+	FirstName varchar(255) NOT NULL,
+	Age int
+);
+
+Alter table persons
+add unique(ID);
+
+Create Table Persons1(
+	ID int primary key,
+    LastName varchar(255) NOT NULL unique,
+	FirstName varchar(255) NOT NULL unique,
+	Age int
+    #primary key(ID)
+);
+desc Persons1;
+create table category(
+c_id int primary key,
+c_name varchar(25) not null unique,
+c_decrp varchar(250) not null
+);
+
+insert into category values (102, 'furnitures', 'it stores all set of wooden items');
+select * from category;
+desc category;
+
+use org123;
+CREATE TABLE Products (
+    P_ID int primary key,
+    p_Name varchar(250) NOT NULL,
+    c_id int ,
+    CONSTRAINT c_id FOREIGN KEY (c_id)
+    REFERENCES category(c_id)
+);
+show tables from org123;
+desc products;
+drop table products;
+insert into products values (904, 'Wooden table', null);
+select * from products;
+select * from category;
+delete from category where c_id=101;
+drop table category;
