@@ -171,3 +171,40 @@ select * from products;
 select * from category;
 delete from category where c_id=101;
 drop table category;
+CREATE TABLE Persona1 (
+ID int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar (255),
+Age int,
+City varchar (255) DEFAULT 'Coimbatbre'
+);
+desc persona1;
+SELECT * FROM worker;
+SELECT * FROM worker WHERE JOINING_DATE LIKE '2014-02%';
+
+create view admin_ka_paisa as select * from worker where department="Admin" and salary>10000 order by salary desc;
+select * from admin_ka_paisa;
+CREATE TABLE Bonus (
+    WORKER_REF_ID INT,
+    BONUS_AMOUNT INT,
+    BONUS_DATE DATETIME,
+    FOREIGN KEY (WORKER_REF_ID)
+        REFERENCES Worker(WORKER_ID)
+        ON DELETE CASCADE
+);
+
+INSERT INTO Bonus 
+    (WORKER_REF_ID, BONUS_AMOUNT, BONUS_DATE) VALUES
+    (1, 5000, '2016-02-20'),
+    (2, 3000, '2016-06-11'),
+    (3, 4000, '2016-02-20'),
+    (1, 4500, '2016-02-20'),
+    (2, 3500, '2016-06-11');
+select * from worker;
+SELECT * FROM Worker WHERE first_name NOT IN ('Vipul', 'Satish');
+select * from worker where first_name like "%a";
+select * from worker where first_name like "_____h";
+select department,count(*) as no_of_dept from worker group by department order by no_of_dept desc;
+SELECT * FROM Worker WHERE salary > 10000
+UNION ALL
+SELECT * FROM Worker WHERE salary> 10000;
