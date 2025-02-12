@@ -230,7 +230,6 @@ insert into vit values (104, 'Karthik', 'Chennai'), (103, 'Arun', 'bhopal');
 select * from vit;
 select name as Winner from vitbhopal where id=(select id from vit where college="bhopal");
 
-#Test(Class) 
 show databases;
 use temp;
 CREATE TABLE Worker (
@@ -302,7 +301,7 @@ ORDER BY WORKER_ID DESC
 LIMIT 5;
 SELECT * FROM Worker w inner JOIN Title t ON (w.WORKER_ID = t.WORKER_REF_ID) WHERE t.WORKER_TITLE = 'Manager';
 
-#Joins
+
 use org123;
 create table student (
 	s_id int primary key,
